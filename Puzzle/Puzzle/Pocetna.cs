@@ -17,6 +17,11 @@ namespace Puzzle
 
         bool nacin = true, vrsta = true;
 
+        public static Bitmap resizeImage(Image imgToResize, Size size)
+        {
+            return (Bitmap)(new Bitmap(imgToResize, size));
+        }
+
         public Pocetna()
         {
             InitializeComponent();
@@ -24,7 +29,7 @@ namespace Puzzle
 
         private void Pocetna_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void numN_ValueChanged(object sender, EventArgs e)
@@ -80,30 +85,63 @@ namespace Puzzle
         private void swapLabel(Object sender, EventArgs e)
         {
             PuzzleButton btn = (PuzzleButton)sender;
-            if (btn.Text == "")
-                return;
-            PuzzleButton prazniBtn = null;
-            foreach(PuzzleButton bt in flpPuzzle.Controls)
+            if (vrsta)
             {
-                if(bt.Text == "")
-                {
-                    prazniBtn = bt;
-                    break;
-                }
+                if (btn.Text == "")
+                    return;
+            }
+            else
+            {
+                if (btn.Image == null)
+                    return;
             }
 
-            if((btn.pos == (prazniBtn.pos - 1) && prazniBtn.pos % n != 1) || btn.pos == (prazniBtn.pos + n) || btn.pos == (prazniBtn.pos - n) || (btn.pos == (prazniBtn.pos + 1) && prazniBtn.pos % n != 0))
+            PuzzleButton prazniBtn = null;
+            if (vrsta)
             {
-                prazniBtn.BackColor = Color.LightSkyBlue;
-                btn.BackColor = Color.GhostWhite;
-                prazniBtn.value = btn.value;
-                prazniBtn.Text = btn.Text;
-                btn.Text = "";
-                btn.value = 0;
-                flpPuzzle.Focus();
+                foreach (PuzzleButton bt in flpPuzzle.Controls)
+                {
+                    if (bt.Text == "")
+                    {
+                        prazniBtn = bt;
+                        break;
+                    }
+                }
+
+                if ((btn.pos == (prazniBtn.pos - 1) && prazniBtn.pos % n != 1) || btn.pos == (prazniBtn.pos + n) || btn.pos == (prazniBtn.pos - n) || (btn.pos == (prazniBtn.pos + 1) && prazniBtn.pos % n != 0))
+                {
+                    prazniBtn.BackColor = Color.LightSkyBlue;
+                    btn.BackColor = Color.GhostWhite;
+                    prazniBtn.value = btn.value;
+                    prazniBtn.Text = btn.Text;
+                    btn.Text = "";
+                    btn.value = 0;
+                    flpPuzzle.Focus();
+                }
+                rjesenje();
             }
-            rjesenje();
-        }        
+            else
+            {
+                foreach (PuzzleButton bt in flpPuzzle.Controls)
+                {
+                    if (bt.Image == null)
+                    {
+                        prazniBtn = bt;
+                        break;
+                    }
+                }
+
+                if ((btn.pos == (prazniBtn.pos - 1) && prazniBtn.pos % n != 1) || btn.pos == (prazniBtn.pos + n) || btn.pos == (prazniBtn.pos - n) || (btn.pos == (prazniBtn.pos + 1) && prazniBtn.pos % n != 0))
+                {
+                    prazniBtn.Image = btn.Image;
+                    prazniBtn.value = btn.value;
+                    btn.value = 0;
+                    btn.Image = null;
+                    flpPuzzle.Focus();
+                }
+                rjesenje();
+            }
+        }
 
         //pritiskom na button nova puzzla poziva se ova metoda koja slaže novu igru tako da nasumično rasporedi brojeve buttona
         private void btnNovaPuzzla_Click(object sender, EventArgs e)
@@ -121,15 +159,15 @@ namespace Puzzle
             flpPuzzle.Height = m * 50 + m + 1;
 
             btnOdustajem.Visible = true;
-            btnOdustajem.Location = new Point(flpPuzzle.Width / 2 - 40, flpPuzzle.Location.Y + flpPuzzle.Height);                               
+            btnOdustajem.Location = new Point(flpPuzzle.Width / 2 - 40, flpPuzzle.Location.Y + flpPuzzle.Height);
 
             Random rand = new Random();
 
-            for(int i = 0; i < n * m; i++)
+            for (int i = 0; i < n * m; i++)
             {
                 PuzzleButton pbtn = new PuzzleButton();
                 pbtn.pos = i + 1;
-                if(nacin)
+                if (nacin)
                     pbtn.Click += new EventHandler(swapLabel);
                 else
                 {
@@ -147,7 +185,7 @@ namespace Puzzle
             //provjeravamo je li vrsta puzzle brojevi ili slika, ako su brojevi dodijeli nasumicno brojeve
             //ako se želi implementirati slika, treba sliku razrezati na n*m dijelova te nasumicno te dijelove podijeliti
             //pazeći da postavljamo za odgovarajući dio odgovarajući value svakom buttonu
-            if(vrsta)
+            if (vrsta)
             {
                 foreach (PuzzleButton btn in flpPuzzle.Controls)
                 {
@@ -169,25 +207,80 @@ namespace Puzzle
             }
             else
             {
+                Bitmap img = Properties.Resources.slagalica;
+                Bitmap newimg = resizeImage(img, new Size(n * 50, m * 50));
+                var Pixel_format = newimg.PixelFormat;
+                var imgarray = new Image[n * m];
+                //int k = 0;
+                for (int i = 0; i < m; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        var index = i * n + j;
+                        RectangleF Tile = new RectangleF();
+                        Tile.Width = 50;
+                        Tile.Height = 50;
+                        Tile.X = j * 50;
+                        Tile.Y = i * 50;
+                        imgarray[index] = newimg.Clone(Tile, Pixel_format);
+                    }
+                }
 
+                for (int i = 0; i < (n * m - prazno); i++)
+                {
+                    listaBrojeva[i] = i;
+                }
+
+                foreach (PuzzleButton btn in flpPuzzle.Controls)
+                {
+                    if (listaBrojeva.Count != 0)
+                    {
+                        int r = rand.Next(listaBrojeva.Count);
+                        btn.Image = imgarray[listaBrojeva[r]];
+                        btn.value = listaBrojeva[r] + 1;
+                        listaBrojeva.RemoveAt(r);
+                    }
+                    else
+                    {
+                        btn.Image = null;
+                        btn.value = 0;
+                    }
+                }
             }
-            
-        }        
+
+        }
 
         //metoda koja provjerava je su li buttoni poredani po redu
         protected void rjesenje()
         {
-            int i = 1;
-            foreach(PuzzleButton btn in flpPuzzle.Controls)
+            if (vrsta)
             {
-                if(btn.Text != "" && btn.value != i)
+                int i = 1;
+                foreach (PuzzleButton btn in flpPuzzle.Controls)
                 {
-                    return;
+                    if (btn.Text != "" && btn.value != i)
+                    {
+                        return;
+                    }
+                    i++;
                 }
-                i++;
+                //pogađaj();
+                prvobitnoStanje();
             }
-            //pogađaj();
-            prvobitnoStanje();
+            else
+            {
+                int i = 1;
+                foreach (PuzzleButton btn in flpPuzzle.Controls)
+                {
+                    if (btn.Image != null && btn.value != i)
+                    {
+                        return;
+                    }
+                    i++;
+                }
+                //pogađaj();
+                prvobitnoStanje();
+            }
         }
 
         //pritiskom na button odustajem i prihvaćanjem messageboxa, vraća se mogućnost odabira nove puzzle i dodaje se jedan filter za sliku
@@ -220,6 +313,21 @@ namespace Puzzle
             MessageBox.Show(pokušaj);
         }
 
+        private void groupBoxPuzzla_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numPrazno_ValueChanged(object sender, EventArgs e)
+        {
+            prazno = (int)numPrazno.Value;
+        }
+
+        private void rbtSlika_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //metode koje služe za drag&drop način slaganja puzzle
         //dragover metoda prikazuje efekt povlačenja preko flowlayoutpanela
         //dragdrop metoda provjerava gdje smo spustili element, ako je zamjena dopuštena, mijenjamo buttone
@@ -234,25 +342,50 @@ namespace Puzzle
             Point p = this.flpPuzzle.PointToClient(new Point(e.X, e.Y));
 
             PuzzleButton btn = (PuzzleButton)flpPuzzle.GetChildAtPoint(p);
-            if(btn != null)
+            if (btn != null)
             {
-                if (btn.Text == "")
+                if (vrsta)
                 {
-                    btn.BackColor = Color.LightSkyBlue;
-                    moveBtn.BackColor = Color.GhostWhite;
-                    btn.Text = moveBtn.Text;
-                    btn.value = int.Parse(moveBtn.Text);
+                    if (btn.Text == "")
+                    {
+                        btn.BackColor = Color.LightSkyBlue;
+                        moveBtn.BackColor = Color.GhostWhite;
+                        btn.Text = moveBtn.Text;
+                        btn.value = int.Parse(moveBtn.Text);
+                        moveBtn.value = 0;
+                        moveBtn.Text = "";
+                        rjesenje();
+                        flpPuzzle.Focus();
+                    }
+                }
+
+                else if (btn.Image == null)
+                {
+                    btn.Image = moveBtn.Image;
+                    moveBtn.Image = null;
+                    btn.value = moveBtn.value;
                     moveBtn.value = 0;
-                    moveBtn.Text = "";
                     rjesenje();
                     flpPuzzle.Focus();
                 }
-            }                       
+            }
         }
         private void btnMouseDown(object sender, MouseEventArgs e)
         {
             PuzzleButton btn = (PuzzleButton)sender;
-            if(btn.Text != "")
+            if (vrsta)
+            {
+                if (btn.Text != "")
+                {
+                    moveBtn = btn;
+                    Bitmap bit = new Bitmap(50, 50);
+                    moveBtn.DrawToBitmap(bit, new Rectangle(Point.Empty, bit.Size));
+                    moveCursor = new Cursor(bit.GetHicon());
+                    Cursor.Current = moveCursor;
+                    DoDragDrop(this, DragDropEffects.Move);
+                }
+            }
+            else if (btn.Image != null)
             {
                 moveBtn = btn;
                 Bitmap bit = new Bitmap(50, 50);
@@ -260,7 +393,7 @@ namespace Puzzle
                 moveCursor = new Cursor(bit.GetHicon());
                 Cursor.Current = moveCursor;
                 DoDragDrop(this, DragDropEffects.Move);
-            }            
+            }
         }
     }
 
@@ -286,4 +419,5 @@ namespace Puzzle
         }
 
     }
+
 }
