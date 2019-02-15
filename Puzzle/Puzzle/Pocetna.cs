@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
+using ImageProcessor;
 
 namespace Puzzle
 {
@@ -12,10 +13,30 @@ namespace Puzzle
         PuzzleButton moveBtn;
         Cursor moveCursor;
 
-        public string pokušaj;
+        string pokušaj;
+        string slika;
 
+        ImageFactory imgf = new ImageFactory();
+
+        int filtri;
 
         bool nacin = true, vrsta = true;
+
+        public void imgFactoryFiltri()
+        {
+            imgf.Load(resizeImage((Bitmap)Properties.Resources.ResourceManager.GetObject(slika),new Size(400,400)));
+            for (int i = 0; i < filtri; ++i){
+                if (i % 3 == 0)
+                    imgf.GaussianBlur(25);
+                else if (i % 3 == 1)
+                    imgf.Pixelate(25);
+                else
+                    imgf.Brightness(-25);
+            }
+            //Bitmap img = (Bitmap)imgf.Image;
+            //Bitmap newimg = resizeImage(img, new Size(400, 400));
+            pnlSlika.BackgroundImage = imgf.Image;
+        }
 
         public static Bitmap resizeImage(Image imgToResize, Size size)
         {
@@ -25,6 +46,12 @@ namespace Puzzle
         public Pocetna()
         {
             InitializeComponent();
+            lblPogadaj.Visible = false;
+            txtPogadaj.Visible = false;
+            btnPogodi.Visible = false;
+            cmbTema.SelectedIndex = 0;
+            filtri = 6;
+            this.Text = "Puzzle";
         }
 
         private void Pocetna_Load(object sender, EventArgs e)
@@ -264,8 +291,13 @@ namespace Puzzle
                     }
                     i++;
                 }
-                //pogađaj();
-                prvobitnoStanje();
+                filtri--;
+                imgFactoryFiltri();
+                txtPogadaj.Visible = true;
+                lblPogadaj.Visible = true;                
+                btnPogodi.Visible = true;
+                btnOdustajem.Visible = false;
+                txtPogadaj.Focus();                
             }
             else
             {
@@ -278,8 +310,12 @@ namespace Puzzle
                     }
                     i++;
                 }
-                //pogađaj();
-                prvobitnoStanje();
+                filtri--;
+                imgFactoryFiltri();
+                txtPogadaj.Visible = true;
+                lblPogadaj.Visible = true;
+                btnPogodi.Visible = true;
+                txtPogadaj.Focus();
             }
         }
 
@@ -289,7 +325,10 @@ namespace Puzzle
             DialogResult result = MessageBox.Show("Jeste li sigurni da želite odustati? Odustajanjem se dodaje još jedan filter na sliku.", "Jeste li sigurni?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                imgFactoryFiltri();
                 prvobitnoStanje();
+                filtri++;
+                
             }
         }
 
@@ -303,14 +342,9 @@ namespace Puzzle
             flpPuzzle.Controls.Clear();
             flpPuzzle.Height = 0;
             flpPuzzle.Width = 0;
-        }
-
-        //metoda za pogađanje NIJE NAPRAVLJENO!
-        private void pogađaj()
-        {
-            FormaPogadanja form = new FormaPogadanja();
-            form.ShowDialog(this);
-            MessageBox.Show(pokušaj);
+            lblPogadaj.Visible = false;
+            txtPogadaj.Visible = false;
+            btnPogodi.Visible = false;
         }
 
         private void groupBoxPuzzla_Enter(object sender, EventArgs e)
@@ -326,6 +360,77 @@ namespace Puzzle
         private void rbtSlika_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        public void novaIgra()
+        {
+            grbSve.Visible = false;
+            cmbTema.Visible = true;
+            btnTema.Visible = true;
+            lblTema.Visible = true;
+            pnlSlika.BackgroundImage = null;
+            slika = "";
+        }
+        private void btnPogodi_Click(object sender, EventArgs e)
+        {
+            if(txtPogadaj.Text != "")
+            {
+                if(txtPogadaj.Text.ToLower() == slika.ToLower())
+                {
+                    filtri = 0;
+                    MessageBox.Show("ČESTITAMO <3");
+                    prvobitnoStanje();
+                    novaIgra();
+                }
+                else
+                {
+                    prvobitnoStanje();
+                }
+            }
+        }
+
+        private void btnTema_Click(object sender, EventArgs e)
+        {
+            int x = cmbTema.SelectedIndex;
+            Random rand = new Random();
+            int r = rand.Next(0, 4);
+
+            if(x == 0)
+            {
+                if (r == 0) slika = "pas";
+                else if (r == 1) slika = "macka";
+                else if (r == 2) slika = "zec";
+                else slika = "ptica";
+            }
+            else if (x == 1)
+            {
+                if (r == 0) slika = "auto";
+                else if (r == 1) slika = "brod";
+                else if (r == 2) slika = "vlak";
+                else slika = "avion";
+            }
+            else
+            {
+                if (r == 0) slika = "ormar";
+                else if (r == 1) slika = "krevet";
+                else if (r == 2) slika = "stolac";
+                else slika = "stol";
+            }
+            /*Bitmap img = (Bitmap)Properties.Resources.ResourceManager.GetObject(slika);
+            Bitmap newimg = resizeImage(img, new Size(400, 400));
+            pnlSlika.BackgroundImage = newimg;*/
+            imgFactoryFiltri();
+            grbSve.Visible = true;
+            cmbTema.Visible = false;
+            btnTema.Visible = false;
+            lblTema.Visible = false;
+            lblNaslov.Text = cmbTema.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            novaIgra();
+            prvobitnoStanje();
+            lblNaslov.Text = "";
         }
 
         //metode koje služe za drag&drop način slaganja puzzle

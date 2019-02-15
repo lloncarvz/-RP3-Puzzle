@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageProcessor, Version=2.7.0.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.7.0.100\lib\net452\ImageProcessor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormaPogadanja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormaPogadanja.Designer.cs">
-      <DependentUpon>FormaPogadanja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pocetna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +57,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormaPogadanja.resx">
-      <DependentUpon>FormaPogadanja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pocetna.resx">
       <DependentUpon>Pocetna.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +70,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +86,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\slagalica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\krevet.jpg" />
+    <None Include="Resources\zec.jpg" />
+    <None Include="Resources\vlak.jpg" />
+    <None Include="Resources\stolac.jpg" />
+    <None Include="Resources\stol.jpg" />
+    <None Include="Resources\ptica.jpg" />
+    <None Include="Resources\pas.jpg" />
+    <None Include="Resources\ormar.jpg" />
+    <None Include="Resources\macka.jpg" />
+    <None Include="Resources\boat.jpg" />
+    <None Include="Resources\avion.jpg" />
+    <None Include="Resources\auto.jpg" />
+    <Content Include="Resources\brod.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -48,18 +48,30 @@
             this.rbtSlika = new System.Windows.Forms.RadioButton();
             this.rbtBrojevi = new System.Windows.Forms.RadioButton();
             this.btnOdustajem = new System.Windows.Forms.Button();
+            this.lblPogadaj = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtPogadaj = new System.Windows.Forms.TextBox();
+            this.btnPogodi = new System.Windows.Forms.Button();
+            this.pnlSlika = new System.Windows.Forms.Panel();
+            this.lblTema = new System.Windows.Forms.Label();
+            this.cmbTema = new System.Windows.Forms.ComboBox();
+            this.btnTema = new System.Windows.Forms.Button();
+            this.grbSve = new System.Windows.Forms.GroupBox();
+            this.lblNaslov = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrazno)).BeginInit();
             this.groupBoxPomicanje.SuspendLayout();
             this.groupBoxPuzzla.SuspendLayout();
+            this.grbSve.SuspendLayout();
             this.SuspendLayout();
             // 
             // numN
             // 
-            this.numN.Location = new System.Drawing.Point(155, 25);
+            this.numN.Location = new System.Drawing.Point(160, 32);
             this.numN.Maximum = new decimal(new int[] {
-            5,
+            6,
             0,
             0,
             0});
@@ -80,9 +92,9 @@
             // 
             // numM
             // 
-            this.numM.Location = new System.Drawing.Point(190, 25);
+            this.numM.Location = new System.Drawing.Point(195, 32);
             this.numM.Maximum = new decimal(new int[] {
-            5,
+            6,
             0,
             0,
             0});
@@ -104,7 +116,7 @@
             // lblN
             // 
             this.lblN.AutoSize = true;
-            this.lblN.Location = new System.Drawing.Point(172, 9);
+            this.lblN.Location = new System.Drawing.Point(177, 16);
             this.lblN.Name = "lblN";
             this.lblN.Size = new System.Drawing.Size(35, 13);
             this.lblN.TabIndex = 2;
@@ -113,7 +125,7 @@
             // lblDimenzije
             // 
             this.lblDimenzije.AutoSize = true;
-            this.lblDimenzije.Location = new System.Drawing.Point(12, 27);
+            this.lblDimenzije.Location = new System.Drawing.Point(17, 34);
             this.lblDimenzije.Name = "lblDimenzije";
             this.lblDimenzije.Size = new System.Drawing.Size(135, 13);
             this.lblDimenzije.TabIndex = 3;
@@ -122,7 +134,7 @@
             // lblSlobodna
             // 
             this.lblSlobodna.AutoSize = true;
-            this.lblSlobodna.Location = new System.Drawing.Point(12, 63);
+            this.lblSlobodna.Location = new System.Drawing.Point(17, 70);
             this.lblSlobodna.Name = "lblSlobodna";
             this.lblSlobodna.Size = new System.Drawing.Size(187, 13);
             this.lblSlobodna.TabIndex = 4;
@@ -130,7 +142,7 @@
             // 
             // numPrazno
             // 
-            this.numPrazno.Location = new System.Drawing.Point(205, 61);
+            this.numPrazno.Location = new System.Drawing.Point(210, 68);
             this.numPrazno.Maximum = new decimal(new int[] {
             1,
             0,
@@ -187,7 +199,7 @@
             this.groupBoxPomicanje.Controls.Add(this.lblPomicanje);
             this.groupBoxPomicanje.Controls.Add(this.rbtnPovlacenje);
             this.groupBoxPomicanje.Controls.Add(this.rbtnKlik);
-            this.groupBoxPomicanje.Location = new System.Drawing.Point(12, 87);
+            this.groupBoxPomicanje.Location = new System.Drawing.Point(17, 94);
             this.groupBoxPomicanje.Name = "groupBoxPomicanje";
             this.groupBoxPomicanje.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBoxPomicanje.Size = new System.Drawing.Size(200, 73);
@@ -196,7 +208,7 @@
             // 
             // btnNovaPuzzla
             // 
-            this.btnNovaPuzzla.Location = new System.Drawing.Point(12, 166);
+            this.btnNovaPuzzla.Location = new System.Drawing.Point(20, 173);
             this.btnNovaPuzzla.Name = "btnNovaPuzzla";
             this.btnNovaPuzzla.Size = new System.Drawing.Size(100, 20);
             this.btnNovaPuzzla.TabIndex = 10;
@@ -213,10 +225,10 @@
             // flpPuzzle
             // 
             this.flpPuzzle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpPuzzle.Location = new System.Drawing.Point(12, 195);
+            this.flpPuzzle.Location = new System.Drawing.Point(12, 242);
             this.flpPuzzle.Margin = new System.Windows.Forms.Padding(0);
             this.flpPuzzle.Name = "flpPuzzle";
-            this.flpPuzzle.Size = new System.Drawing.Size(0, 0);
+            this.flpPuzzle.Size = new System.Drawing.Size(1, 0);
             this.flpPuzzle.TabIndex = 11;
             this.flpPuzzle.DragDrop += new System.Windows.Forms.DragEventHandler(this.flpPuzzle_DragDrop);
             this.flpPuzzle.DragOver += new System.Windows.Forms.DragEventHandler(this.flpPuzzle_DragOver);
@@ -226,7 +238,7 @@
             this.groupBoxPuzzla.Controls.Add(this.label1);
             this.groupBoxPuzzla.Controls.Add(this.rbtSlika);
             this.groupBoxPuzzla.Controls.Add(this.rbtBrojevi);
-            this.groupBoxPuzzla.Location = new System.Drawing.Point(218, 87);
+            this.groupBoxPuzzla.Location = new System.Drawing.Point(223, 94);
             this.groupBoxPuzzla.Name = "groupBoxPuzzla";
             this.groupBoxPuzzla.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBoxPuzzla.Size = new System.Drawing.Size(200, 73);
@@ -267,7 +279,7 @@
             // 
             // btnOdustajem
             // 
-            this.btnOdustajem.Location = new System.Drawing.Point(12, 213);
+            this.btnOdustajem.Location = new System.Drawing.Point(41, 377);
             this.btnOdustajem.Name = "btnOdustajem";
             this.btnOdustajem.Size = new System.Drawing.Size(100, 20);
             this.btnOdustajem.TabIndex = 12;
@@ -276,22 +288,138 @@
             this.btnOdustajem.Visible = false;
             this.btnOdustajem.Click += new System.EventHandler(this.btnOdustajem_Click);
             // 
+            // lblPogadaj
+            // 
+            this.lblPogadaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPogadaj.AutoSize = true;
+            this.lblPogadaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPogadaj.Location = new System.Drawing.Point(6, 617);
+            this.lblPogadaj.Name = "lblPogadaj";
+            this.lblPogadaj.Size = new System.Drawing.Size(246, 26);
+            this.lblPogadaj.TabIndex = 13;
+            this.lblPogadaj.Text = "Pokušajte pogoditi sliku:";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtPogadaj
+            // 
+            this.txtPogadaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPogadaj.Location = new System.Drawing.Point(258, 614);
+            this.txtPogadaj.Name = "txtPogadaj";
+            this.txtPogadaj.Size = new System.Drawing.Size(160, 32);
+            this.txtPogadaj.TabIndex = 15;
+            // 
+            // btnPogodi
+            // 
+            this.btnPogodi.Location = new System.Drawing.Point(424, 620);
+            this.btnPogodi.Name = "btnPogodi";
+            this.btnPogodi.Size = new System.Drawing.Size(75, 23);
+            this.btnPogodi.TabIndex = 16;
+            this.btnPogodi.Text = "Pogodi";
+            this.btnPogodi.UseVisualStyleBackColor = true;
+            this.btnPogodi.Click += new System.EventHandler(this.btnPogodi_Click);
+            // 
+            // pnlSlika
+            // 
+            this.pnlSlika.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSlika.Location = new System.Drawing.Point(526, 41);
+            this.pnlSlika.Name = "pnlSlika";
+            this.pnlSlika.Size = new System.Drawing.Size(400, 400);
+            this.pnlSlika.TabIndex = 17;
+            // 
+            // lblTema
+            // 
+            this.lblTema.AutoSize = true;
+            this.lblTema.Location = new System.Drawing.Point(12, 9);
+            this.lblTema.Name = "lblTema";
+            this.lblTema.Size = new System.Drawing.Size(82, 13);
+            this.lblTema.TabIndex = 18;
+            this.lblTema.Text = "Odaberite temu:";
+            // 
+            // cmbTema
+            // 
+            this.cmbTema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTema.FormattingEnabled = true;
+            this.cmbTema.Items.AddRange(new object[] {
+            "Životinje",
+            "Prijevozna sredtsva",
+            "Namještaj"});
+            this.cmbTema.Location = new System.Drawing.Point(100, 6);
+            this.cmbTema.Name = "cmbTema";
+            this.cmbTema.Size = new System.Drawing.Size(188, 21);
+            this.cmbTema.TabIndex = 19;
+            // 
+            // btnTema
+            // 
+            this.btnTema.Location = new System.Drawing.Point(294, 6);
+            this.btnTema.Name = "btnTema";
+            this.btnTema.Size = new System.Drawing.Size(75, 23);
+            this.btnTema.TabIndex = 20;
+            this.btnTema.Text = "Izaberi temu";
+            this.btnTema.UseVisualStyleBackColor = true;
+            this.btnTema.Click += new System.EventHandler(this.btnTema_Click);
+            // 
+            // grbSve
+            // 
+            this.grbSve.Controls.Add(this.groupBoxPuzzla);
+            this.grbSve.Controls.Add(this.numN);
+            this.grbSve.Controls.Add(this.numM);
+            this.grbSve.Controls.Add(this.lblN);
+            this.grbSve.Controls.Add(this.lblDimenzije);
+            this.grbSve.Controls.Add(this.lblSlobodna);
+            this.grbSve.Controls.Add(this.numPrazno);
+            this.grbSve.Controls.Add(this.groupBoxPomicanje);
+            this.grbSve.Controls.Add(this.btnNovaPuzzla);
+            this.grbSve.Location = new System.Drawing.Point(15, 35);
+            this.grbSve.Name = "grbSve";
+            this.grbSve.Size = new System.Drawing.Size(505, 201);
+            this.grbSve.TabIndex = 21;
+            this.grbSve.TabStop = false;
+            this.grbSve.Visible = false;
+            // 
+            // lblNaslov
+            // 
+            this.lblNaslov.AutoSize = true;
+            this.lblNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaslov.Location = new System.Drawing.Point(526, 14);
+            this.lblNaslov.Name = "lblNaslov";
+            this.lblNaslov.Size = new System.Drawing.Size(0, 24);
+            this.lblNaslov.TabIndex = 22;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(851, 617);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "NOVA IGRA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(956, 657);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblNaslov);
+            this.Controls.Add(this.grbSve);
+            this.Controls.Add(this.btnTema);
+            this.Controls.Add(this.cmbTema);
+            this.Controls.Add(this.lblTema);
+            this.Controls.Add(this.pnlSlika);
+            this.Controls.Add(this.btnPogodi);
+            this.Controls.Add(this.txtPogadaj);
+            this.Controls.Add(this.lblPogadaj);
             this.Controls.Add(this.btnOdustajem);
-            this.Controls.Add(this.groupBoxPuzzla);
             this.Controls.Add(this.flpPuzzle);
-            this.Controls.Add(this.btnNovaPuzzla);
-            this.Controls.Add(this.groupBoxPomicanje);
-            this.Controls.Add(this.numPrazno);
-            this.Controls.Add(this.lblSlobodna);
-            this.Controls.Add(this.lblDimenzije);
-            this.Controls.Add(this.lblN);
-            this.Controls.Add(this.numM);
-            this.Controls.Add(this.numN);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pocetna";
             this.Text = "Pocetna";
             this.Load += new System.EventHandler(this.Pocetna_Load);
@@ -302,6 +430,8 @@
             this.groupBoxPomicanje.PerformLayout();
             this.groupBoxPuzzla.ResumeLayout(false);
             this.groupBoxPuzzla.PerformLayout();
+            this.grbSve.ResumeLayout(false);
+            this.grbSve.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,6 +457,17 @@
         private System.Windows.Forms.RadioButton rbtSlika;
         private System.Windows.Forms.RadioButton rbtBrojevi;
         private System.Windows.Forms.Button btnOdustajem;
+        private System.Windows.Forms.Label lblPogadaj;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox txtPogadaj;
+        private System.Windows.Forms.Button btnPogodi;
+        private System.Windows.Forms.Panel pnlSlika;
+        private System.Windows.Forms.Label lblTema;
+        private System.Windows.Forms.ComboBox cmbTema;
+        private System.Windows.Forms.Button btnTema;
+        private System.Windows.Forms.GroupBox grbSve;
+        private System.Windows.Forms.Label lblNaslov;
+        private System.Windows.Forms.Button button1;
     }
 }
 
