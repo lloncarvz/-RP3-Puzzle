@@ -329,6 +329,7 @@
             this.pnlSlika.Name = "pnlSlika";
             this.pnlSlika.Size = new System.Drawing.Size(400, 400);
             this.pnlSlika.TabIndex = 17;
+            this.pnlSlika.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSlika_Paint);
             // 
             // lblTema
             // 
@@ -345,12 +346,13 @@
             this.cmbTema.FormattingEnabled = true;
             this.cmbTema.Items.AddRange(new object[] {
             "Životinje",
-            "Prijevozna sredtsva",
+            "Prijevozna sredstva",
             "Namještaj"});
             this.cmbTema.Location = new System.Drawing.Point(100, 6);
             this.cmbTema.Name = "cmbTema";
             this.cmbTema.Size = new System.Drawing.Size(188, 21);
             this.cmbTema.TabIndex = 19;
+            this.cmbTema.SelectedIndexChanged += new System.EventHandler(this.cmbTema_SelectedIndexChanged);
             // 
             // btnTema
             // 
@@ -379,6 +381,7 @@
             this.grbSve.TabIndex = 21;
             this.grbSve.TabStop = false;
             this.grbSve.Visible = false;
+            this.grbSve.Enter += new System.EventHandler(this.grbSve_Enter);
             // 
             // lblNaslov
             // 

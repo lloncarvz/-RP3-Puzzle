@@ -20,7 +20,6 @@ C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj
 C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.exe
 C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.pdb
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csprojAssemblyReference.cache
-C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.FormaPogadanja.resources
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.Pocetna.resources
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.Properties.Resources.resources
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.GenerateResource.cache
@@ -33,3 +32,6 @@ C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\Puzzle.pdb
 C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
 C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
 C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
+C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
+C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
+C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
