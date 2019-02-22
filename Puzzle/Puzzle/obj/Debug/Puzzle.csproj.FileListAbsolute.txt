@@ -35,3 +35,16 @@ C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\bin\Debug\Puzzle.exe.config
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\bin\Debug\Puzzle.exe
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\bin\Debug\Puzzle.pdb
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.csprojAssemblyReference.cache
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.Pocetna.resources
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.Properties.Resources.resources
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.GenerateResource.cache
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CoreCompileInputs.cache
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.exe
+F:\Instaliranje programa OVDJE\Nikolin_folder\rp3\Puzzle\Puzzle\obj\Debug\Puzzle.pdb

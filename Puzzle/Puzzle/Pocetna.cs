@@ -12,7 +12,7 @@ namespace Puzzle
 
         PuzzleButton moveBtn;
         Cursor moveCursor;
-        
+
         string slika;
 
         ImageFactory imgf = new ImageFactory();
@@ -23,8 +23,9 @@ namespace Puzzle
 
         public void imgFactoryFiltri()
         {
-            imgf.Load(resizeImage((Bitmap)Properties.Resources.ResourceManager.GetObject(slika),new Size(400,400)));
-            for (int i = 0; i < filtri; ++i){
+            imgf.Load(resizeImage((Bitmap)Properties.Resources.ResourceManager.GetObject(slika), new Size(400, 400)));
+            for (int i = 0; i < filtri; ++i)
+            {
                 if (i % 3 == 0)
                     imgf.GaussianBlur(25);
                 else if (i % 3 == 1)
@@ -132,7 +133,7 @@ namespace Puzzle
                     }
                 }
 
-                if ((btn.pos == (prazniBtn.pos - 1) && prazniBtn.pos % n != 1) || btn.pos == (prazniBtn.pos + n) || 
+                if ((btn.pos == (prazniBtn.pos - 1) && prazniBtn.pos % n != 1) || btn.pos == (prazniBtn.pos + n) ||
                     btn.pos == (prazniBtn.pos - n) || (btn.pos == (prazniBtn.pos + 1) && prazniBtn.pos % n != 0))
                 {
                     prazniBtn.BackColor = Color.LightSkyBlue;
@@ -200,11 +201,58 @@ namespace Puzzle
                 flpPuzzle.Controls.Add(pbtn);
             }
 
-            List<int> listaBrojeva = new List<int>();
+            List<int> listaBrojeva = new List<int>(), listaBrojeva2 = new List<int>();
+            int r, inverzije = 0;
             for (int i = 1; i <= brPolja; i++)
             {
                 listaBrojeva.Add(i);
             }
+
+            while (listaBrojeva.Count != 0)
+            {
+                r = rand.Next(listaBrojeva.Count);
+                listaBrojeva2.Add(listaBrojeva[r]);
+                listaBrojeva.RemoveAt(r);
+            }
+
+            if (prazno == 1)
+            {
+                bool promjena = false;
+                for (int i = 0; i < listaBrojeva2.Count; ++i)
+                    for (int j = i + 1; j < listaBrojeva2.Count; ++j)
+                    {
+                        if (listaBrojeva2[i] > listaBrojeva2[j]) ++inverzije;
+                    }
+                if (m % 2 == 1)
+                {
+                    if (inverzije % 2 == 1) promjena = true;
+
+                }
+                else
+                {
+                    if (n % 2 == 0)
+                    {
+                        if ((inverzije + n) % 2 == 1) promjena = true;
+                    }
+                    else
+                    {
+                        if ((inverzije + n) % 2 == 0) promjena = true;
+                    }
+                }
+                if (promjena)
+                {
+                    for (int i = 0; i < listaBrojeva2.Count; ++i)
+                        if (listaBrojeva2[i] > listaBrojeva2[i + 1])
+                        {
+                            int tmp = listaBrojeva2[i];
+                            listaBrojeva2[i] = listaBrojeva2[i + 1];
+                            listaBrojeva2[i + 1] = tmp;
+                            break;
+                        }
+                }
+            }
+
+
             //provjeravamo je li vrsta puzzle brojevi ili slika, ako su brojevi dodijeli nasumicno brojeve
             //ako se želi implementirati slika, treba sliku razrezati na n*m dijelova te nasumicno te dijelove podijeliti
             //pazeći da postavljamo za odgovarajući dio odgovarajući value svakom buttonu
@@ -213,13 +261,12 @@ namespace Puzzle
                 foreach (PuzzleButton btn in flpPuzzle.Controls)
                 {
 
-                    if (listaBrojeva.Count != 0)
+                    if (listaBrojeva2.Count != 0)
                     {
-                        int r = rand.Next(listaBrojeva.Count);
-                        btn.Text = listaBrojeva[r] + "";
-                        btn.value = listaBrojeva[r];
+                        btn.Text = listaBrojeva2[0] + "";
+                        btn.value = listaBrojeva2[0];
                         btn.BackColor = Color.LightSkyBlue;
-                        listaBrojeva.RemoveAt(r);
+                        listaBrojeva2.RemoveAt(0);
                     }
                     else
                     {
@@ -252,17 +299,17 @@ namespace Puzzle
 
                 for (int i = 0; i < (n * m - prazno); i++)
                 {
-                    listaBrojeva[i] = i;
+                    listaBrojeva2[i] = i;
                 }
 
                 foreach (PuzzleButton btn in flpPuzzle.Controls)
                 {
-                    if (listaBrojeva.Count != 0)
+                    if (listaBrojeva2.Count != 0)
                     {
-                        int r = rand.Next(listaBrojeva.Count);
-                        btn.Image = imgarray[listaBrojeva[r]];
-                        btn.value = listaBrojeva[r] + 1;
-                        listaBrojeva.RemoveAt(r);
+                        int rnd = rand.Next(listaBrojeva2.Count);
+                        btn.Image = imgarray[listaBrojeva2[rnd]];
+                        btn.value = listaBrojeva2[rnd] + 1;
+                        listaBrojeva2.RemoveAt(rnd);
                     }
                     else
                     {
@@ -291,10 +338,10 @@ namespace Puzzle
                 filtri--;
                 imgFactoryFiltri();
                 txtPogadaj.Visible = true;
-                lblPogadaj.Visible = true;                
+                lblPogadaj.Visible = true;
                 btnPogodi.Visible = true;
                 btnOdustajem.Visible = false;
-                txtPogadaj.Focus();                
+                txtPogadaj.Focus();
             }
             else
             {
@@ -370,9 +417,9 @@ namespace Puzzle
         }
         private void btnPogodi_Click(object sender, EventArgs e)
         {
-            if(txtPogadaj.Text != "")
+            if (txtPogadaj.Text != "")
             {
-                if(txtPogadaj.Text.ToLower() == slika.ToLower())
+                if (txtPogadaj.Text.ToLower() == slika.ToLower())
                 {
                     filtri = 0;
                     imgFactoryFiltri();
@@ -394,7 +441,7 @@ namespace Puzzle
             Random rand = new Random();
             int r = rand.Next(0, 4);
 
-            if(x == 0)
+            if (x == 0)
             {
                 if (r == 0) slika = "pas";
                 else if (r == 1) slika = "macka";
@@ -465,15 +512,15 @@ namespace Puzzle
                 {
                     if (btn.Text == "")
                     {
-                            btn.BackColor = Color.LightSkyBlue;
-                            moveBtn.BackColor = Color.GhostWhite;
-                            btn.Text = moveBtn.Text;
-                            btn.value = int.Parse(moveBtn.Text);
-                            moveBtn.value = 0;
-                            moveBtn.Text = "";
-                            rjesenje();
-                            flpPuzzle.Focus();
-              
+                        btn.BackColor = Color.LightSkyBlue;
+                        moveBtn.BackColor = Color.GhostWhite;
+                        btn.Text = moveBtn.Text;
+                        btn.value = int.Parse(moveBtn.Text);
+                        moveBtn.value = 0;
+                        moveBtn.Text = "";
+                        rjesenje();
+                        flpPuzzle.Focus();
+
                     }
                 }
 
