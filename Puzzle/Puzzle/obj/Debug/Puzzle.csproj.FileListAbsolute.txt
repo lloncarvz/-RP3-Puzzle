@@ -35,3 +35,16 @@ C:\Users\Luka\Documents\GitHub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
 C:\Users\Gabi\Desktop\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\Puzzle.exe.config
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\Puzzle.exe
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\Puzzle.pdb
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.dll
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\bin\Debug\ImageProcessor.xml
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csprojAssemblyReference.cache
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.Pocetna.resources
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.Properties.Resources.resources
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.GenerateResource.cache
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CoreCompileInputs.cache
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CopyComplete
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.exe
+D:\RiM\3sem\RP3_Csharp\PUZzLE\Ghub\-RP3-Puzzle\Puzzle\Puzzle\obj\Debug\Puzzle.pdb

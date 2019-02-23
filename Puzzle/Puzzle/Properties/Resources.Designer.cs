@@ -83,9 +83,9 @@ namespace Puzzle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap boat {
+        internal static System.Drawing.Bitmap brod {
             get {
-                object obj = ResourceManager.GetObject("boat", resourceCulture);
+                object obj = ResourceManager.GetObject("brod", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -97,10 +97,11 @@
     <None Include="Resources\pas.jpg" />
     <None Include="Resources\ormar.jpg" />
     <None Include="Resources\macka.jpg" />
-    <None Include="Resources\boat.jpg" />
     <None Include="Resources\avion.jpg" />
     <None Include="Resources\auto.jpg" />
-    <Content Include="Resources\brod.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brod.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
