@@ -69,7 +69,7 @@
             // 
             // numN
             // 
-            this.numN.Location = new System.Drawing.Point(160, 32);
+            this.numN.Location = new System.Drawing.Point(193, 32);
             this.numN.Maximum = new decimal(new int[] {
             6,
             0,
@@ -92,7 +92,7 @@
             // 
             // numM
             // 
-            this.numM.Location = new System.Drawing.Point(195, 32);
+            this.numM.Location = new System.Drawing.Point(158, 32);
             this.numM.Maximum = new decimal(new int[] {
             6,
             0,
@@ -120,7 +120,7 @@
             this.lblN.Name = "lblN";
             this.lblN.Size = new System.Drawing.Size(35, 13);
             this.lblN.TabIndex = 2;
-            this.lblN.Text = "N x M";
+            this.lblN.Text = "M x N";
             // 
             // lblDimenzije
             // 

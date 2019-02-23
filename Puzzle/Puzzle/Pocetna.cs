@@ -215,6 +215,7 @@ namespace Puzzle
                 listaBrojeva.RemoveAt(r);
             }
 
+            // za jedno prazno polje činimo igru rješivom
             if (prazno == 1)
             {
                 bool promjena = false;
@@ -223,20 +224,20 @@ namespace Puzzle
                     {
                         if (listaBrojeva2[i] > listaBrojeva2[j]) ++inverzije;
                     }
-                if (m % 2 == 1)
+                if (n % 2 == 1)
                 {
                     if (inverzije % 2 == 1) promjena = true;
 
                 }
                 else
                 {
-                    if (n % 2 == 0)
+                    if (m % 2 == 0)
                     {
-                        if ((inverzije + n) % 2 == 1) promjena = true;
+                        if ((inverzije + m) % 2 == 1) promjena = true;
                     }
                     else
                     {
-                        if ((inverzije + n) % 2 == 0) promjena = true;
+                        if ((inverzije + m) % 2 == 0) promjena = true;
                     }
                 }
                 if (promjena)
@@ -297,19 +298,14 @@ namespace Puzzle
                     }
                 }
 
-                for (int i = 0; i < (n * m - prazno); i++)
-                {
-                    listaBrojeva2[i] = i;
-                }
 
                 foreach (PuzzleButton btn in flpPuzzle.Controls)
                 {
                     if (listaBrojeva2.Count != 0)
                     {
-                        int rnd = rand.Next(listaBrojeva2.Count);
-                        btn.Image = imgarray[listaBrojeva2[rnd]];
-                        btn.value = listaBrojeva2[rnd] + 1;
-                        listaBrojeva2.RemoveAt(rnd);
+                        btn.Image = imgarray[listaBrojeva2[0] - 1];
+                        btn.value = listaBrojeva2[0];
+                        listaBrojeva2.RemoveAt(0);
                     }
                     else
                     {
