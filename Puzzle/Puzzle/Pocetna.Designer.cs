@@ -120,7 +120,7 @@
             this.lblN.Name = "lblN";
             this.lblN.Size = new System.Drawing.Size(35, 13);
             this.lblN.TabIndex = 2;
-            this.lblN.Text = "M x N";
+            this.lblN.Text = "N x M";
             // 
             // lblDimenzije
             // 
